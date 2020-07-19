@@ -3,14 +3,16 @@
     <div class="sidebar-inner slimscrollleft">
         <div class="user-details">
             <div class="pull-left">
-                <img src="{{url('assets/admin/images/users/avatar-1.jpg')}}" alt="" class="thumb-md img-circle">
+                <img src="{{url(Auth::user()->image)}}" alt="" class="thumb-md img-circle">
             </div>
             <div class="user-info">
                 <div class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{Auth::user()
                     ->name}} <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
+                        <li><a href="{{Auth::user()->role->id == 1 ? route('admin.settings') : route('user
+                        .settings') }}"><i class="md md-face-unlock"></i> Profile<div
+                                    class="ripple-wrapper"></div></a></li>
                         <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();

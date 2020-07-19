@@ -7,7 +7,7 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="index.html">Home</a></li>
+                    <li class="menu-active"><a href="{{route('home')}}">Home</a></li>
                     <li><a href="category.html">Category</a></li>
                     <li><a href="archive.html">Archive</a></li>
 
