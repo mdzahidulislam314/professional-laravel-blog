@@ -53,13 +53,11 @@
                 <li>
                     <a href="{{route('admin.tag.index')}}" class="waves-effect {{ Request::is('admin/tag') ? 'active' : ''}}"><i class="ion-ios7-pricetags"></i><span> Tags </span></a>
                 </li>
-                <li class="has_sub">
-                    <a href="#" class="waves-effect"><i class="md md-mail"></i><span> Partial </span><span class="pull-right"><i class="md md-add"></i></span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="inbox.html">Categories</a></li>
-                        <li><a href="email-compose.html">Tags</a></li>
-                    </ul>
+                <li>
+                    <a href="{{route('admin.subscribers.index')}}" class="waves-effect {{ Request::is('subscribers') ? 'active'
+                     : ''}}"><i class="ion-at"></i><span> Subscribers </span></a>
                 </li>
+
                 @endif
 
                 @if (Request::is('user*'))

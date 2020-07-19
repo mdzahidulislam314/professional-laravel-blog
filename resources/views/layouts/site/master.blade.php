@@ -31,7 +31,7 @@
 </head>
 
 <body>
-    
+
 @include('layouts.site.include.header')
 
 @yield('content')
@@ -53,6 +53,7 @@
 	<script src="assets/site/js/waypoints.min.js"></script>
 	<script src="assets/site/js/mail-script.js"></script>
     <script src="assets/site/js/main.js"></script>
+    @include('sweetalert::alert')
     @stack('js')
 </body>
 
