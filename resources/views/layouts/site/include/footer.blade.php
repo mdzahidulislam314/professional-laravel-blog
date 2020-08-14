@@ -28,7 +28,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-6">
 					<div class="single-footer-widget instafeed">
-						<h6 class="footer_title">Instagram Feed</h6>
+						<h6 class="footer_title">All Category</h6>
 						<ul class="list instafeed d-flex flex-wrap">
 							<li><img src="img/i1.jpg" alt=""></li>
 							<li><img src="img/i2.jpg" alt=""></li>
@@ -55,10 +55,8 @@
 				</div>
 			</div>
 			<div class="row footer-bottom d-flex justify-content-between align-items-center">
-				<p class="col-lg-12 footer-text text-center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+				<p class="col-lg-12 footer-text text-center">
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Blog Develope By <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">BitPixelBD.com</a>
 			</div>
 		</div>
 	</footer>
-	<!-- End footer Area -->

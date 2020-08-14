@@ -7,7 +7,7 @@
                 <div class="bg-overlay"></div>
                 <h3 class="text-center m-t-10 text-white"> Sign In to <strong>Admin</strong> </h3>
             </div>
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}" class="form-horizontal m-t-20">
                 @csrf
                 <div class="panel-body">
                     <div class="form-group">

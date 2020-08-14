@@ -12,11 +12,16 @@ class HomeController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
-        $tags = Tag::all();
-        $posts = Post::latest()->paginate(3);
-        return view('welcome',compact('categories','tags','posts'));
-    }
 
+    	$data = [
+
+			'categories' => Category::all(),
+			'tags' => Tag::all(),
+			'latestPost' => Post::latest()->approved()->published()->take(5)->get(),
+			'posts' => Post::latest()->approved()->published()->paginate(6)
+    	];
+
+        return view('welcome',$data);
+    }
 
 }

@@ -1,0 +1,12 @@
+.head-title {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.has_sub a i{
+    transition: .3s;
+}
+
+ul li.has_sub a:hover{
+    padding-left: 5px;
+}

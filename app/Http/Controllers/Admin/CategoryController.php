@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
+use Yajra\DataTables\DataTables;
+
 
 class CategoryController extends Controller
 {
@@ -17,8 +19,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.category.index',compact('categories'));
+      
+        return view('admin.category.index');
+    }
+
+    public function data()
+    {
+       $data = Category::query();
+        return Datatables::of($data)
+            ->addIndexColumn()
+            ->make(true);
     }
 
     /**
@@ -47,8 +57,11 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);;
         $category->save();
-        Alert::success('Good Job!!','Successfully Done :)', '');
-        return redirect()->route('admin.category.index');
+
+       return response()->json([
+            'success' => true,
+            'message' => 'Category Created!'
+        ], 200);
     }
 
     /**
@@ -84,15 +97,18 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required|unique:categories',
+            'name' => 'required',
         ]);
 
         $category = Category::findOrFail($id);
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);;
         $category->save();
-        Alert::success('Successfully Done :)', '');
-        return redirect()->route('admin.category.index');
+       
+       return response()->json([
+            'success' => true,
+            'message' => 'Category Updated!'
+        ], 200);
     }
 
     /**
@@ -105,6 +121,10 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-        return redirect()->route('admin.category.index');
+        
+         return response()->json([
+            'success' => true,
+            'message' => 'Category Deleted!'
+        ], 200);
     }
 }

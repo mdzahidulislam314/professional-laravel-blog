@@ -3,13 +3,13 @@
     <div class="container box_1170 main-menu">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="index.html"><img src="assets/site/img/logo.png" alt="" title="" /></a>
+                <a href="index.html"><img src="" alt="" title="" /></a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="{{route('home')}}">Home</a></li>
-                    <li><a href="category.html">Category</a></li>
-                    <li><a href="archive.html">Archive</a></li>
+                    {{-- <li><a href="category.html">Category</a></li> --}}
+                    {{-- <li><a href="archive.html">Archive</a></li> --}}
 
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
@@ -34,12 +34,8 @@
                         </ul>
                     </li>
                     @endguest
-                    <li class="menu-has-children"><a href="">Blog</a>
-                        <ul>
-                            <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li class="menu-has-children"><a href="">All Blogs</a></li>
+                    <li><a href="{{route('contact.create')}}">Contact</a></li>
                 </ul>
             </nav>
         </div>

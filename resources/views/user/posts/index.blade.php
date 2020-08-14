@@ -2,6 +2,9 @@
 
 @section('title','Dashboard')
 
+@section('post') active @endsection
+@section('allpost') active @endsection
+
 @push('css')
 
 @endpush
@@ -15,9 +18,9 @@
           <!-- Page-Title -->
           <div class="row">
               <div class="col-sm-12">
-                  <h4 class="pull-left page-title">All Posts!</h4>
+                  <h4 class="pull-left page-title">All Posts</h4>
                   <a href="{{route('user.posts.create')}}" class="btn btn-primary btn-rounded
-                    waves-effect waves-light m-b-5"><i class="fa fa-plus"></i> Add</a>
+                    waves-effect waves-light m-b-5"><i class="fa fa-plus"></i> Add New</a>
                   <ol class="breadcrumb pull-right">
                       <li><a href="#">Moltran</a></li>
                       <li class="active">Dashboard</li>
@@ -30,9 +33,6 @@
         <div class="row">
           <div class="col-md-12">
               <div class="panel panel-default">
-                  <div class="panel-heading">
-
-                  </div>
                   <div class="panel-body">
                       <div class="row">
                           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -41,8 +41,7 @@
                                       <tr>
                                         <th>ID</th>
                                         <th>Title</th>
-                                        <th>Author</th>
-                                        <th><i class="ion-eye"></i></th>
+                                        <th>Views</th>
                                         <th>Status</th>
                                         <th>Is-Approved</th>
                                         <th>Created-at</th>
@@ -54,31 +53,38 @@
                                     <tr>
                                         <td>{{ $loop->index+ 1}}</td>
                                         <td>{{ Str::limit($post->title,'20')}}</td>
-                                        <td>{{ $post->user->name }}</td>
                                         <td>{{ $post->view_count }}</td>
-                                        <td>
+                                        <td class="text-center">
                                             @if($post->status == true)
-                                            <span class="badge label-success">Public</span>
+                                                <span class="text-success" style="font-size: 23px">
+                                                    <i class="md md-remove-red-eye"></i>
+                                                </span>
                                             @else
-                                            <span class="badge label-info">Privet</span>
+                                                <span class="text-warning" style="font-size: 23px">
+                                                    <i class="md md-visibility-off"></i>
+                                                </span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             @if($post->is_approved == true)
-                                            <span class="badge label-success">Approved</span>
+                                                <span class="text-primary" style="font-size: 22px">
+                                                    <i class="fa fa-toggle-on"></i>
+                                                </span>
                                             @else
-                                            <span class="badge label-danger">Pending</span>
+                                                <span class="text-danger" style="font-size: 22px">
+                                                    <i class="fa fa-toggle-off"></i>
+                                                </span>
                                             @endif
                                         </td>
                                         <td>{{ $post->created_at }}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{route('user.posts.edit',$post->id)}}" class="btn btn-sm btn-primary"
                                                 title="Edit button">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                             <a href="{{route('user.posts.show',$post->id)}}" class="btn btn-sm btn-info"
                                                 title="View button">
-                                                <i class="ion-eye"></i>
+                                                <i class="md md-remove-red-eye"></i>
                                             </a>
                                             <button class="btn btn-danger btn-sm" title="Delete button" type="button" onclick="deletepost({{$post->id}})">
                                                 <i class="fa fa-trash-o"></i>
@@ -100,17 +106,12 @@
               </div>
           </div>
       </div>
+
       </div>
   </div>
-
   </div>
 </div>
-</div>
 
-  <footer class="footer text-right" style="position:fixed">
-      2015 © Moltran.
-  </footer>
-</div>
 @endsection
 
 @push('js')

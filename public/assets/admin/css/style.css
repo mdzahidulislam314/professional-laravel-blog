@@ -1,53 +1,7 @@
 
 
-/* TABLE OF CONTENTS
-  1) General
-  2) Bootstrap RESET
-    2.0 Dropdown
-    2.1 Panels
-    2.2 Buttons
-    2.3 Choose-button
-    2.4 Background Colors
-    2.5 text color
-    2.6 text input
-    2.7 Labels
-    2.8 Badge
-    2.9 Pagination
-    2.10 Tabs-Accordions
-    2.11 Progress Bars
-    2.12 Modals
-    2.13 Alerts
-    2.14 list group
-    2.15 Other Inputs
-  3) Portlets
-  4) Topbar
-  5) Sidebar
-  6) Right-Sidebar
-  7) Email (read,compose,inbox)
-  8) Calendar
-  9) CHECKBOX-RADIO BUTTON
- 10) Widget
- 11) Gallery
- 12) Pricing Tables
- 13) FORMS
- 14) TABLES
- 15) CHARTS
- 16) MAPS
- 17) PAGES
-    17.1 Profile
-    17.2 TIMELINE
-    17.3 Log-in
-    17.4 Lock-screen
-    17.5 Error-pages
-    17.6 Coming soon
-    17.7 Maintenance
-    17.8 Conatct
- 18) RESPONSIVE
-*/
-
 @import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
-
 
 
 
@@ -1340,7 +1294,7 @@ body.fixed-left .side-menu.left {
   margin-left: 240px;
   overflow: hidden;
   position: relative;
-  min-height: 940px;
+  min-height: auto;
 }
 .content-page > .content {
   margin-top: 70px;
@@ -3170,7 +3124,7 @@ div.dataTables_info {
   border-radius: 6px;
 }
 .panel-pages .panel-heading {
-  padding: 40px 20px;
+  padding: 20px 20px;
   border-radius: 6px 6px 0px 0px;
   -moz-border-radius: 6px 6px 0px 0px;
   -webkit-border-radius: 6px 6px 0px 0px;

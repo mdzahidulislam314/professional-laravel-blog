@@ -13,7 +13,6 @@ class SubscriberController extends Controller
         $subscriber = new Subscriber();
         $subscriber->email = $request->email;
         $subscriber->save();
-        Alert::success('Good Job!!','Successfully Done :)', '');
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Successfully Done!');
     }
 }

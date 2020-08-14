@@ -74,8 +74,8 @@ class PostController extends Controller
         $post->save();
         $post->categories()->attach($request->categories);
         $post->tags()->attach($request->tags);
-        Alert::success('Successfully Done :)', '');
-        return redirect()->route('admin.post.index');
+
+        return redirect()->route('admin.post.index')->with('success', 'Post Created Done!');
     }
 
     /**
@@ -115,8 +115,6 @@ class PostController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'categories' => 'required',
-            'tags' => 'required',
             'editor1' => 'required',
         ]);
 
@@ -151,8 +149,8 @@ class PostController extends Controller
         $post->save();
         $post->categories()->sync($request->categories);
         $post->tags()->sync($request->tags);
-        Alert::success('Successfully Done :)', '');
-        return redirect()->route('admin.post.index');
+
+        return redirect()->route('admin.post.index')->with('success', 'Post Updated Done!');
     }
 
     /**
@@ -164,7 +162,10 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
-        unlink($post->image);
+        if (isset($post->image)) {
+            unlink($post->image);
+        }
+        
         $post->categories()->detach();
         $post->tags()->detach();
         $post->delete();
@@ -184,7 +185,7 @@ class PostController extends Controller
         {
             $post->is_approved = true;
             $post->save();
-            Alert::success('Successfully Done :)', '');
+            return redirect()->back()->with('success', 'Post Approved Done!');
         } else
         {
             Alert::info('This Post Already Approved.', '');

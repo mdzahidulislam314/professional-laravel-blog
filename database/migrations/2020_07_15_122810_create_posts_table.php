@@ -19,8 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('editor1');
-            $table->string('image')->default('default.png');
-            $table->string('view_count')->default(0);
+            $table->string('image')->default('default.png')->nullable();
+            $table->string('view_count')->default(0)->nullable();
             $table->boolean('status')->default(false);
             $table->boolean('is_approved')->default(false);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

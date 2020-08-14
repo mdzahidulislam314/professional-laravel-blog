@@ -1,8 +1,6 @@
-
 @extends('layouts.admin.master')
-
 @section('title','Dashboard')
-
+@section('subscriber') active @endsection
 @push('css')
 
 @endpush

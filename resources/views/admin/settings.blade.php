@@ -19,8 +19,9 @@
                 ('../../images/big/bg.jpg')">
                     <div class="bg-picture-overlay"></div>
                     <div class="profile-info-name">
-                        <img src="images/avatar-1.jpg" class="thumb-lg img-circle img-thumbnail" alt="profile-image">
-                        <h3 class="text-white">John Deon</h3>
+                        <img src="{{url(Auth::user()->image)}}" class="thumb-lg img-circle img-thumbnail"
+                             alt="profile-image">
+                        <h3 class="text-white">{{Auth::user()->name}}</h3>
                     </div>
                 </div>
                 <!--/ meta -->
@@ -50,17 +51,7 @@
                     <div class="indicator"></div></ul>
             </div>
             <div class="col-lg-6 col-md-3 col-sm-3 hidden-xs">
-                <div class="pull-right">
-                    <div class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle btn-rounded btn btn-primary waves-effect waves-light" href="#"> Following <span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                            <li><a href="#">Poke</a></li>
-                            <li><a href="#">Private message</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Unfollow</a></li>
-                        </ul>
-                    </div>
-                </div>
+               
             </div>
         </div>
         <div class="row">
@@ -82,7 +73,7 @@
                                             <p class="text-muted">{{Auth::user()->name}}</p>
                                         </div>
                                         <div class="about-info-p">
-                                            <strong>Full Name</strong>
+                                            <strong>User Name</strong>
                                             <br/>
                                             <p class="text-muted">{{Auth::user()->username}}</p>
                                         </div>
@@ -127,21 +118,27 @@
                                 <h3 class="panel-title">My Projects</h3>
                             </div>
                                 <div class="panel-body">
+                                    <form action="{{route('admin.update.password')}}" method="post">
+                                        @csrf
+                                        @method('PUT')
                                     <div class="form-group">
-                                        <label for="Password">Old Password</label>
-                                        <input type="password" placeholder="8 - 15 Characters" id="Password"
-                                               class="form-control">
+                                        <label for="old_password">Old Password</label>
+                                        <input type="password" placeholder="8 - 15 Characters" id="old_password"
+                                               class="form-control" name="old_password">
                                     </div>
                                     <div class="form-group">
                                         <label for="Password">New Password</label>
                                         <input type="password" placeholder="8 - 15 Characters" id="Password"
-                                               class="form-control">
+                                               class="form-control" name="password">
                                     </div>
                                     <div class="form-group">
-                                        <label for="RePassword">Re-Password</label>
-                                        <input type="password" placeholder="8 - 15 Characters" id="RePassword"
-                                               class="form-control">
+                                        <label for="confirm_password">Conirm Password</label>
+                                        <input type="password" placeholder="8 - 15 Characters" id="confirm_password"
+                                               class="form-control" name="password_confirmation">
                                     </div>
+                                    <button class="btn btn-primary waves-effect waves-light w-md"
+                                            type="submit">Update</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

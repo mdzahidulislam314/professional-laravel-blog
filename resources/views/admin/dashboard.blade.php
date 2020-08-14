@@ -2,21 +2,18 @@
 
 @section('title','Dashboard')
 
+@section('dashboard') active @endsection
+
 @push('css')
 
 @endpush
 
 @section('content')
-
- <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->                      
+                    
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
                     <div class="container">
-
-                        <!-- Page-Title -->
                         <div class="row">
                             <div class="col-sm-12">
                                 <h4 class="pull-left page-title">Welcome !</h4>
@@ -108,12 +105,10 @@
                                 </div>
                             </div>
                         </div> 
-                        <!-- End row-->
-
 
                         <div class="row">
                             <div class="col-lg-8">
-                                <div class="portlet"><!-- /portlet heading -->
+                                <div class="portlet">
                                     <div class="portlet-heading">
                                         <h3 class="portlet-title text-dark text-uppercase">
                                             Website Stats
@@ -191,10 +186,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> <!-- /Portlet -->
-                            </div> <!-- end col -->
-                        </div> <!-- End row -->
-
+                                </div>
+                            </div>
+                        </div> 
 
                         <div class="row">
                             <!-- INBOX -->
@@ -384,22 +378,11 @@
                                         </form> 
                                     </div> 
                                 </div>
-                            </div> <!-- end col -->
-                        </div> <!-- end row -->
-
-                    </div> <!-- container -->
-                               
-                </div> <!-- content -->
-
-                <footer class="footer text-right">
-                    2015 © Moltran.
-                </footer>
-
+                            </div> 
+                        </div>
+                    </div>    
+                </div> 
             </div>
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
-
 
             <!-- Right Sidebar -->
             <div class="side-bar right-bar nicescroll">
@@ -509,8 +492,7 @@
                     </ul>  
                 </div>
             </div>
-            <!-- /Right-bar -->
-
+  
 @endsection
 
 @push('js')

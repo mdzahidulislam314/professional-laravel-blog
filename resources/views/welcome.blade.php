@@ -8,12 +8,12 @@
 	<!-- Start banner Area -->
 	<section class="banner-area">
 		<div class="container box_1170">
-			<div class="row fullscreen d-flex align-items-center justify-content-center">
+			<div class="row fullscreen d-flex align-items-center justify-content-center" style="min-height: 400px">
 				<div class="banner-content text-center col-lg-8">
 					<h1>
-						Charter Yacht <br>
-						The Luxury Of Traveling
-					</h1>
+						Learn Code, Enjoy Coding!
+					</h1
+					>
 				</div>
 			</div>
 		</div>
@@ -144,13 +144,13 @@
 							<h3>
 								<a href="">{{$post->title}}</a>
 							</h3>
-							<p> {!! Str::limit($post->editor1, 20)!!} </p>
-							<a href="blog-details.html" class="primary-btn text-uppercase mt-15">continue Reading</a>
-							<div class="post-box">
+							<p> {!! Str::limit($post->editor1, 250)!!} </p>
+							<a href="{{ route('post.details',$post->slug) }}" class="primary-btn text-uppercase mt-15">continue Reading</a>
+							<div class="post-box" >
 								<div class="d-flex">
 									<div>
 										<a href="#">
-											<img src="assets/site/img/author/a1.png" alt="">
+											<img src="{{url($post->user->image)}}" alt="" height="50" width="50">
 										</a>
 									</div>
 									<div class="post-meta">
@@ -168,19 +168,21 @@
 												<li>
 													<a href="#">
 														<span class="lnr lnr-picture"></span>
-														Image Post
-													</a>
-												</li>
-												<li>
-													<a href="#">
-														<span class="lnr lnr-coffee-cup"></span>
-														Food & Travel
+														@foreach ($post->categories as $category )
+															{{$category->name}},
+														@endforeach
 													</a>
 												</li>
 												<li>
 													<a href="#">
 														<span class="lnr lnr-bubble"></span>
-														03 Comments
+														{{$post->comments->count()}} Comments
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<span class="lnr lnr-eye"></span>
+														{{$post->view_count}} Views
 													</a>
 												</li>
 											</ul>
@@ -209,25 +211,24 @@
 						</form>
 					</div>
 
-					<div class="single-widget protfolio-widget">
-						<img class="img-fluid" src="asset/site/img/blog/user2.png" alt="">
-						<a href="#">
-							<h4>Charlie ALison Barber</h4>
-						</a>
-						<div class="desigmation">
-							<p>Senior blog writer</p>
-						</div>
-						<p>
-							Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend
-							money on boot camp whenyou can get. Boot camps have itssuppor ters andits detractors.
-						</p>
-						<ul>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-behance"></i></a></li>
-						</ul>
-					</div>
+					 <div class="single-widget popular-posts-widget">
+                        <h4 class="title">Recent Posts</h4>
+                        <div class="blog-list ">
+                            @foreach($latestPost as $post)
+                            <div class="single-popular-post d-flex flex-row">
+                                <div class="popular-thumb">
+                                    <img class="img-fluid" src="{{ url($post->image) }}" width="100" height="60" alt="">
+                                </div>
+                                <div class="popular-details">
+                                    <a href="{{ route('post.details',$post->slug) }}">
+                                        <h4>{{ Str::limit($post->title, 15)}}</h4>
+                                    </a>
+                                    <p class="text-uppercase">{{ $post->created_at->diffForHumans() }}</p>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
 
 					<div class="single-widget popular-posts-widget">
 						<h4 class="title">Popular Posts</h4>
@@ -280,10 +281,10 @@
 					</div>
 
 					<div class="single-widget category-widget">
-						<h4 class="title">Post Categories</h4>
+						<h4 class="title">All Categories</h4>
 						<ul>
                             @foreach($categories as $category)
-							<li><a href="#" class="justify-content-between align-items-center d-flex">
+							<li><a href="{{ route('post.category',$category->slug) }}" class="justify-content-between align-items-center d-flex">
 									<p>{{$category->name}}</p> <span>{{$category->posts()->count()}}</span>
 								</a></li>
                             @endforeach
@@ -291,10 +292,10 @@
 					</div>
 
                     <div class="single-widget category-widget">
-                        <h4 class="title">Post Tags</h4>
+                        <h4 class="title">All Tags</h4>
                         <ul>
                             @foreach($tags as $tag)
-                                <li><a href="#" class="justify-content-between align-items-center d-flex">
+                                <li><a href="{{ route('post.tag',$tag->slug) }}" class="justify-content-between align-items-center d-flex">
                                         <p>{{$tag->name}}</p> <span>{{$tag->posts()->count()}}</span>
                                     </a></li>
                             @endforeach

@@ -40,6 +40,7 @@
                                 <label for="exampleInputPassword1">Featured Image</label>
                                 <input type="file" class="form-control" name="image">
                             </div>
+                            
                             <div class="form-group">
                                 <div class="checkbox checkbox-primary">
                                     <input name="status" value="1" id="checkbox1" type="checkbox">

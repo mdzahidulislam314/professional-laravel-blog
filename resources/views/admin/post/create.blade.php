@@ -1,21 +1,20 @@
 @extends('layouts.admin.master')
-
 @section('title','Dashboard')
 
+@section('post') active @endsection
+@section('addpost') active @endsection
+
 @push('css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="/assets/admin/css/bootstrap-select.min.css">
 @endpush
 
 @section('content')
 
 <div class="content-page">
-  <!-- Start content -->
   <div class="content">
       <div class="container">
-          <!-- Page-Title -->
           <div class="row">
               <div class="col-md-12">
-                  <h4 class="pull-left page-title">Create New Post!</h4>
                   <ol class="breadcrumb pull-right">
                       <li><a href="#">Moltran</a></li>
                       <li class="active">Dashboard</li>
@@ -38,7 +37,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Featured Image</label>
-                                <input type="file" class="form-control" name="image">
+                                <input type="file" accept="image/*" onchange="loadFile(event)" class="form-control" name="image">
+                                 <img height="80" width="100" id="output"/>
                             </div>
                             <div class="form-group">
                                 <div class="checkbox checkbox-primary">
@@ -76,7 +76,7 @@
                 <div class="panel-heading"><h3 class="panel-title">Blog Write here</h3></div>
                 <div class="panel-body">
                     <textarea name="editor1"></textarea>
-                    <button type="submit" class="btn btn-purple waves-effect waves-light" style="margin-top:20px">Save & Exit</button>
+                    <button type="submit" class="btn btn-success waves-effect waves-light" style="margin-top:20px">Save & Exit</button>
                 </div>
             </div>
         </form>
@@ -87,16 +87,14 @@
 @endsection
 
 @push('js')
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+<script src="/assets/admin/js/sweetalert.min.js"></script>
+<script src="/assets/admin/js/bootstrap-select.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
     function deletetag(id) {
             swal({
                 title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                // icon: "warning",
+                icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
@@ -109,7 +107,7 @@
                         icon: "success",
                     });
                 } else {
-                    swal("Your imaginary file is safe!");
+               
                 }
             });
         }
@@ -121,12 +119,18 @@ $(function () {
     $('select').selectpicker();
 });
 
-
 CKEDITOR.replace( 'editor1' );
-
-
 </script>
 
-
+<script>
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+        var output = document.getElementById('output');
+        output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
 
 @endpush

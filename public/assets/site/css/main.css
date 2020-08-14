@@ -1800,18 +1800,25 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff; }
 
 .banner-area {
-  background: linear-gradient(0deg, rgba(128, 80, 250, 0.8), rgba(128, 80, 250, 0.8)), url(../img/banner-bg.jpg) no-repeat center;
-  background: -webkit-linear-gradient(0deg, rgba(128, 80, 250, 0.8), rgba(128, 80, 250, 0.8)), url(../img/banner-bg.jpg) no-repeat center;
-  background: -moz-linear-gradient(0deg, rgba(128, 80, 250, 0.8), rgba(128, 80, 250, 0.8)), url(../img/banner-bg.jpg) no-repeat center;
-  background: -ms-linear-gradient(0deg, rgba(128, 80, 250, 0.8), rgba(128, 80, 250, 0.8)), url(../img/banner-bg.jpg) no-repeat center;
-  background: -o-linear-gradient(0deg, rgba(128, 80, 250, 0.8), rgba(128, 80, 250, 0.8)), url(../img/banner-bg.jpg) no-repeat center;
-  background-size: cover; }
+  background: linear-gradient(0deg, rgba(128, 80, 250, 0.6), rgba(128, 80, 250, 0.6)), url(../img/banner-bg.jpg) no-repeat center;
+  background: -webkit-linear-gradient(0deg, rgba(128, 80, 250, 0.6), rgba(128, 80, 250, 0.6)), url(../img/banner-bg.jpg) no-repeat center;
+  background: -moz-linear-gradient(0deg, rgba(128, 80, 250, 0.6), rgba(128, 80, 250, 0.6)), url(../img/banner-bg.jpg) no-repeat center;
+  background: -ms-linear-gradient(0deg, rgba(128, 80, 250, 0.6), rgba(128, 80, 250, 0.6)), url(../img/banner-bg.jpg) no-repeat center;
+  background: -o-linear-gradient(0deg, rgba(128, 80, 250, 0.6), rgba(128, 80, 250, 0.6)), url(../img/banner-bg.jpg) no-repeat center;
+  background-size: cover; 
+  height: 450px;
+}
   .banner-area .primary-btn {
     padding-left: 30px;
     padding-right: 30px; }
   @media (max-width: 991px) {
     .banner-area .fullscreen {
-      height: 500px !important; } }
+      height: 400px !important; } }
+
+.banner-content {
+  position: relative;
+  top: -140px;
+}
 
 .banner-content h1 {
   color: #fff;
@@ -2198,10 +2205,10 @@ body.mobile-nav-active #mobile-nav-toggle {
     -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s; }
     .category-widget ul li p:after {
-      content: "------------------------";
+      content: "--------------------";
       min-width: 250px;
       position: absolute;
-      left: 100px;
+      left: 150px;
       top: 1px; }
       @media (max-width: 991px) and (min-width: 460px) {
         .category-widget ul li p:after {
@@ -2305,7 +2312,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-top: 10px;
     text-transform: uppercase; }
     .main_blog_details .user_details .float-left a:hover {
-      background: #000;
+      background: #8050fa;
       color: #fff; }
   .main_blog_details .user_details .float-right .media {
     text-align: right;
